@@ -1,0 +1,23 @@
+@use "../../sass/_index" as *
+
+button.btn-login
+    @extend .text-links
+    outline: none
+    font-family: "Rubik", sans-serif
+    background: transparent
+    width: 100%
+    display: grid
+    place-items: center
+    padding-block: 1rem
+    text-transform: uppercase
+    color: hsla(0, 0%, 100%, 100%)
+    border: 2px solid hsla(0, 0%, 100%, 100%)
+    border-radius: 5px
+    cursor: pointer
+    will-change: transform
+    transition: transform 400ms ease-out
+    transform: scale(1)
+    &:active
+        transform: scale(0.9)
+    &:focus
+        outline: 2px solid hsla(0, 0%, 100%, 60%)

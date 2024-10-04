@@ -1,0 +1,30 @@
+@use "../../sass/_index" as *
+
+.nav-main
+    display: none
+    @include breakpoint(tablet)
+        display: flex
+        flex-direction: row
+        justify-content: flex-end
+        align-items: center
+        gap: 2rem
+    a
+        @extend .text-links
+        text-decoration: none
+        color: $primary
+        text-transform: uppercase
+        font-family: inherit
+        position: relative
+        &:hover
+            color: $orange
+    button:hover
+        color: $orange !important
+        background: transparent !important
+
+@keyframes pulse
+    0%
+        opacity: 0
+        width: 0
+    100%
+        opacity: 1
+        width: 1.5rem

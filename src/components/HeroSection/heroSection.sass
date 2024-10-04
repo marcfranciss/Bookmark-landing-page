@@ -1,0 +1,102 @@
+@use "../../sass/_index" as *
+
+#s-hero
+    overflow: hidden
+    .container
+        min-height: 100vh
+        display: flex
+        flex-direction: column
+        padding-inline: 2rem
+        padding-top: 145px
+        gap: 48px
+        @include breakpoint(tablet)
+            flex-direction: row
+            justify-content: center
+        @include breakpoint(desktop)
+            margin-inline: auto
+            padding-inline: 0
+            padding-top: 202px
+    .hero-text
+        flex: 1
+        display: flex
+        flex-direction: column
+        justify-content: center
+        @include breakpoint(tablet)
+            order: -1
+        h1
+            @extend .heading-l
+            color: $primary
+            max-width: 16ch
+            margin-bottom: 1rem
+            @include breakpoint(desktop)
+                margin-bottom: 1.5rem
+        p
+            @extend .text-body
+            color: $primary-light
+            margin-bottom: 2rem
+    .hero-img
+        flex: 1
+        position: relative
+        max-height: 255px
+        @include breakpoint(desktop)
+            max-height: 486px
+        img
+            max-width: 313px
+            max-height: 209px
+            @include breakpoint(desktop)
+                max-width: 579px
+                max-height: 386px
+        .design-oblong
+            position: absolute
+            width: 577px
+            height: 203px
+            bottom: 0
+            left: 39px
+            z-index: -1
+            border-radius: 316.5px
+            background-color: hsla(231, 69%, 60%, 100%)
+            @include breakpoint(desktop)
+                width: 1000px
+                height: 352px
+                left: 155px
+.downloads-container
+    display: flex
+    flex-direction: row
+    align-items: center
+    gap: 14px
+.btn-download
+    all: unset
+    cursor: pointer
+    width: 151px
+    height: 3rem
+    font-size: 14px
+    line-height: 28px
+    letter-spacing: 0.25px
+    border-radius: 5px
+    display: grid
+    place-items: center
+    border: 2px solid transparent
+    box-shadow: 0 8px 8px -4px hsla(231, 58%, 55%, 20.01%)
+    transition: color 400ms ease-out, background-color 400ms ease-out, border 400ms ease-out, transform 200ms ease
+    &:active
+        transform: scale(0.9)
+    &:focus
+        outline: 2px inset hsla(0, 0%, 0%, 60%)
+    &.btn-blue
+        background-color: $accent
+        color: $default
+        &:hover
+            background-color: transparent
+            color: $accent
+            border: 2px solid $primary
+    &.btn-white
+        background-color: hsla(0, 0%, 97%, 100%)
+        color: $primary
+        border: 2px solid transparent
+        &:hover
+            background-color: transparent
+            color: $primary
+            border: 2px solid hsla(228, 12%, 41%, 100%)
+
+    @include breakpoint(desktop)
+        width: 166px
