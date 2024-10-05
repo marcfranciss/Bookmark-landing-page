@@ -7,11 +7,11 @@ export const Footer = () => {
   return (
     <footer>
       <div className='logo-nav'>
-        <Logo />
+        {/* <Logo /> */}
         <NavBar id='footer-nav' className='footer-nav' />
       </div>
       <div className='social-copyright'>
-        <SocialNav />
+        {/* <SocialNav /> */}
         <p className='copyright'>© 2021 Loopstudios. All rights reserved</p>
       </div>
     </footer>

@@ -1,11 +1,21 @@
+import { CTASection } from "./components/CTASection/CTASection";
+import { FAQSection } from "./components/FAQSection/FAQSection";
+import { FeatureSection } from "./components/FeaturesSection/FeatureSection";
+import { Footer } from "./components/Footer/Footer";
 import { Header } from "./components/Header/Header";
 import { HeroSection } from "./components/HeroSection/HeroSection";
+import { ProductSection } from "./components/ProductSection/ProductSection";
 
 export const App = () => {
   return (
     <main>
       <Header />
       <HeroSection />
+      <FeatureSection />
+      <ProductSection />
+      <FAQSection />
+      <CTASection />
+      <Footer />
       {/* <!-- Question 1 --> */}
       What is Bookmark?
       {/* <!-- Answer 1 --> */}

@@ -1,0 +1,139 @@
+@use "../../sass/_index" as *
+
+#s-feature
+    .container
+        margin-top: 140px
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        padding-inline: 2rem
+
+        @include breakpoint(desktop)
+            padding-inline: 0
+.feature-article
+    display: flex
+    flex-direction: column
+    align-items: center
+    margin-bottom: 2.5rem
+    @include breakpoint(desktop)
+        row-gap: 1rem
+        margin-bottom: 4.5rem
+    h2
+        @extend .heading-m
+        color: $primary
+    p
+        @extend .text-body
+        color: $primary-light
+        text-align: center
+
+.feature-nav
+    --border-color: hsla(231, 58%, 55%, 20.01%)
+    width: 100%
+    display: flex
+    flex-direction: column
+    border-block: 1px solid var(--border-color)
+    margin-bottom: 4.5rem
+
+    @include breakpoint(desktop)
+        border-top: none
+        flex-direction: row
+        max-width: 730px
+        height: 49px
+
+    button.btn-feature
+        --padding-inline: 2.5rem
+        all: unset
+        width: 100%
+        height: 59px
+        border-bottom: 1px solid var(--border-color)
+        color: $primary-mid
+        padding-top: 21px
+        padding-bottom: 20px
+        cursor: pointer
+        display: grid
+        place-items: center
+        @include breakpoint(desktop)
+            padding-inline: var(--padding-inline)
+            &:not(.active):hover span
+                color: $orange
+        span
+            font-size: 1rem
+            line-height: 17px
+            letter-spacing: 0.53px
+            position: relative
+            transition: color 400ms ease-out
+            &::after
+                content: ""
+                position: absolute
+                bottom: -15px
+                width: calc( 100% - 1ch )
+                left: 50%
+                transform: translateX(-50%)
+                border-bottom: 4px solid transparent
+                @include breakpoint(desktop)
+                    width: 243px
+
+        @include breakpoint(desktop)
+            border-bottom: none
+            width: 243px
+            height: 49px
+            padding-top: 0
+            padding-bottom: 2rem
+        &:last-child
+            border-bottom: none
+        &.active
+            color: $primary
+            span::after
+                border-bottom: 4px solid $orange
+                animation: underlinePulseMobile 400ms ease-in
+                @include breakpoint(desktop)
+                    animation: underlinePulseDesktop 400ms ease-in
+.feature-details-container
+    display: flex
+    flex-direction: row
+    .feature-details, .feature-image
+        display: flex
+        flex-direction: column
+        @include breakpoint(desktop)
+            flex-direction: row
+        &.show
+            display: flex
+        &.hide
+            display: none
+
+        .feature-text
+            display: flex
+            flex-direction: column
+            align-items: center
+
+            @include breakpoint(desktop)
+                align-items: flex-start
+
+            h2
+                @extend .heading-m
+                color: $primary
+                @include breakpoint(desktop)
+                    margin-bottom: 1rem
+
+            p
+                @extend .text-body
+                color: $primary-mid
+                margin-bottom: 15px
+                @include breakpoint(desktop)
+                    margin-bottom: 2rem
+
+@keyframes underlinePulseMobile
+    0%
+        opacity: 0
+        width: 30%
+    100%
+        opacity: 1
+        width: calc( 100% - 1ch )
+@keyframes underlinePulseDesktop
+    0%
+        opacity: 0
+        width: 30%
+    100%
+        opacity: 1
+        width: 243px
