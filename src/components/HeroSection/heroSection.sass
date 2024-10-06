@@ -10,6 +10,7 @@
         padding-top: 145px
         row-gap: 3rem
         @include breakpoint(tablet)
+            min-height: 0
             flex-direction: row
             justify-content: center
             align-items: center
@@ -24,9 +25,12 @@
         flex: 1
         display: flex
         flex-direction: column
-        justify-content: center
+        text-align: center
         @include breakpoint(tablet)
+            text-align: left
             order: -1
+        @include breakpoint(desktop)
+            margin-top: 71px
         h1
             @extend .heading-l
             color: $primary
@@ -43,21 +47,28 @@
         position: relative
         max-height: 255px
         @include breakpoint(desktop)
-            max-height: 486px
-        img
+            // max-height: 486px
+            max-height: none
+        .hero-img__container
+            position: relative
             max-width: 313px
             max-height: 209px
+            margin-bottom: 46px
+            z-index: -1
             @include breakpoint(desktop)
-                max-width: 579px
-                max-height: 386px
+                max-width: none
+                max-height: none
+                width: 579px
+                height: 385px
                 margin-bottom: 100.5px
-        .design-oblong
+        &::after
+            content: ""
             position: absolute
             width: 577px
             height: 203px
             bottom: 0
             left: 39px
-            z-index: -1
+            z-index: -2
             border-radius: 316.5px
             background-color: hsla(231, 69%, 60%, 100%)
             @include breakpoint(desktop)

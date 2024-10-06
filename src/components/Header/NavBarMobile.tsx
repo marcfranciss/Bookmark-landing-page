@@ -1,12 +1,12 @@
 import burgerBtn from "../../assets/images/icon-hamburger.svg";
 import closeBtn from "../../assets/images/icon-close.svg";
-import facebookIcon from "../../assets/images/icon-facebook.svg";
-import twitterIcon from "../../assets/images/icon-twitter.svg";
 import { Logo } from "./Logo";
+
 import "./navBarMobile.sass";
+
 import { useState } from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import { LoginButton } from "../LoginButton/LoginButton";
+import { LoginButton } from "../Buttons/LoginButton";
+import { SocialNav } from "../SocialNav/SocialNav";
 
 export const NavBarMobile = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -30,10 +30,11 @@ export const NavBarMobile = () => {
         aria-label='Navbar toggler'>
         <img src={burgerBtn} alt='' />
       </button>
-      <div
+      <dialog
+        open={isOpen}
         id='nav-mobile'
         role='modal'
-        className={`nav-dialog ${isOpen ? "is-open" : "is-close"}`}
+        className='nav-dialog'
         aria-atomic={isOpen}
         aria-live={isOpen ? "assertive" : "off"}>
         <div className='dialog-container'>
@@ -63,22 +64,16 @@ export const NavBarMobile = () => {
             </ul>
             <LoginButton />
           </nav>
-          <div className='nav-socials'>
-            <a href='#facebook'>
-              <LazyLoadImage
-                src={facebookIcon}
-                alt={`Bookmark's Facebook page link`}
-              />
-            </a>
-            <a href='#twitter'>
-              <LazyLoadImage
-                src={twitterIcon}
-                alt={`Bookmark's Twitter page link`}
-              />
-            </a>
-          </div>
+          <SocialNav
+            customStyle={{
+              position: "absolute",
+              bottom: "3rem",
+              marginInline: "auto",
+              alignSelf: "center",
+            }}
+          />
         </div>
-      </div>
+      </dialog>
     </div>
   );
 };

@@ -1,0 +1,32 @@
+@use "../../sass/_index" as *
+
+.btn_login
+    all: unset
+    outline: none
+    font-family: "Rubik", sans-serif
+    background: transparent
+    width: 100%
+    height: 3rem
+    display: grid
+    place-items: center
+    text-transform: uppercase
+    color: $default
+    border: 2px solid $default
+    border-radius: 5px
+    cursor: pointer
+    will-change: transform
+    transition: color 400ms ease-out, background-color 400ms ease-out, border 400ms ease-out
+    &:active
+        animation: pressDown 400ms ease-out
+    &:focus
+        outline: 2px solid hsla(0, 0%, 100%, 60%)
+    @include text-links
+    @include breakpoint(tablet)
+        width: 111px
+        height: 2.5rem
+        background-color: $orange
+        border: 2px solid transparent
+        &:hover
+            color: $orange
+            background-color: transparent
+            border: 2px solid $orange

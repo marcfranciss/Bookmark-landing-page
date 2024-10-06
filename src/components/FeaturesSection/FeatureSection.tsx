@@ -4,6 +4,7 @@ import { useState } from "react";
 import feature1 from "../../assets/images/illustration-features-tab-1.svg";
 import feature2 from "../../assets/images/illustration-features-tab-2.svg";
 import feature3 from "../../assets/images/illustration-features-tab-3.svg";
+import { MoreInfoButton } from "../Buttons/MoreInfoButton";
 
 const featureNav = ["Simple Bookmarking", "Speedy Searching", "Easy Sharing"];
 
@@ -54,18 +55,19 @@ export const FeatureSection = () => {
           {featureContent.map((details, index) => {
             return (
               <div
+                key={details.header}
                 className={`feature-details ${
                   currIndex === index ? "show" : "hide"
                 }`}>
-                <div className='feature-image' key={details.header}>
-                  <LazyLoadImage src={details.image} alt={details.header} />
+                <div className='feature-image__container'>
+                  <div className='feature-image'>
+                    <LazyLoadImage src={details.image} alt={details.header} />
+                  </div>
                 </div>
                 <div className='feature-text'>
                   <h2>{details.header}</h2>
                   <p>{details.text}</p>
-                  <button type='button' className='btn-info'>
-                    More info
-                  </button>
+                  <MoreInfoButton />
                 </div>
               </div>
             );

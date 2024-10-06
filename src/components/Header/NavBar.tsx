@@ -1,5 +1,4 @@
-import { LoginButton } from "../LoginButton/LoginButton";
-import "./navBar.sass";
+import style from "./navBar.module.sass";
 
 interface NavBarProps {
   id?: string;
@@ -7,19 +6,10 @@ interface NavBarProps {
 }
 export const NavBar = ({ id, className }: NavBarProps) => {
   return (
-    <nav id={id} className={className}>
+    <nav id={id} className={`${style.nav_bar} ${className}`}>
       <a href='#features'>features</a>
       <a href='#pricing'>pricing</a>
       <a href='#contact'>contact</a>
-      <LoginButton
-        style={{
-          color: "#FFFFFF",
-          backgroundColor: "#FA5959",
-          width: "111px",
-          height: "2.5rem",
-          padding: "0",
-        }}
-      />
     </nav>
   );
 };

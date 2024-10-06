@@ -1,0 +1,19 @@
+@use "../../sass/_index" as *
+.button_more
+    all: unset
+    width: 114px
+    height: 3rem
+
+    display: grid
+    place-items: center
+
+    background-color: $accent
+    color: $default
+
+    border-radius: 5px
+    box-shadow: 0 8px 8px -4px $btn-bg
+
+    cursor: pointer
+
+    &:active
+        animation: pressDown 400ms ease-out

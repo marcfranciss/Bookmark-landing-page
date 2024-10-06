@@ -2,18 +2,34 @@
 
 header
     width: 100%
-    display: flex
-    flex-direction: row
-    justify-content: space-between
-    align-items: center
-    padding-top: 2.5rem
-    padding-inline: 2rem
-    position: absolute
-    top: 0
-    left: 0
-    @include breakpoint(tablet)
+    position: relative
+    .header-container
+        width: 100%
         max-width: 1110px
-        padding-top: 4rem
-    @include breakpoint(desktop)
-        padding-inline: 0
-        margin-inline: 165px
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        align-items: center
+        padding-top: 2.5rem
+        padding-inline: 2rem
+        position: absolute
+        top: 0
+        left: 50%
+        transform: translateX(-50%)
+        @include breakpoint(tablet)
+            padding-top: 3rem
+        @include breakpoint(desktop)
+            padding-left: 6px
+            padding-right: 0
+        .nav-header__container
+            display: none
+            @include breakpoint(tablet)
+                display: flex
+                flex-direction: row
+                column-gap: 3rem
+            .nav-main
+                align-items: center
+                gap: 3rem
+                a:hover
+                    transition: color 200ms ease-out
+                    color: $orange

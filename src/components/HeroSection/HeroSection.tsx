@@ -7,13 +7,14 @@ export const HeroSection = () => {
     <section id='s-hero'>
       <div className='container'>
         <div className='hero-img'>
-          <LazyLoadImage
-            src={heroImg}
-            alt='Tablet with loading social media details'
-          />
-          <div className='design-oblong'></div>
+          <div className='hero-img__container'>
+            <LazyLoadImage
+              src={heroImg}
+              alt='Tablet with loading social media details'
+            />
+          </div>
         </div>
-        <div className='hero-text'>
+        <article className='hero-text'>
           <h1>A Simple Bookmark Manager</h1>
           <p>
             A clean and simple interface to organize your favourite websites.
@@ -26,7 +27,7 @@ export const HeroSection = () => {
               Get it on Firefox
             </button>
           </div>
-        </div>
+        </article>
       </div>
     </section>
   );

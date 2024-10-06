@@ -1,12 +1,14 @@
 @use "../../sass/_index" as *
 
 footer
+    background-color: $primary
+.footer-container
     max-width: 1110px
-    background-color: $secondary
     display: flex
     flex-direction: column
-    padding-block: 3.5rem
-    row-gap: 3.5rem
+    align-items: center
+    padding-top: 2.5rem
+    padding-bottom: 43px
     padding-inline: 1.5rem
     @include breakpoint(tablet)
         flex-direction: row
@@ -14,51 +16,24 @@ footer
         padding-top: 44px
         padding-bottom: 33px
         margin-inline: auto
-.logo-nav
-    display: flex
-    flex-direction: column
-    gap: 42px
-    align-items: center
-    @include breakpoint(tablet)
-        align-items: flex-start
-    .footer-nav
+    .nav-footer
         display: flex
         flex-direction: column
-        align-items: center
-        gap: 1rem
+        row-gap: 2rem
+        margin-top: 39px
+        margin-bottom: 3rem
+        a
+            color: $default
+            &:hover
+                transition: color 200ms ease-out
+                color: $orange
         @include breakpoint(tablet)
             flex-direction: row
-            align-items: flex-start
+            column-gap: 2rem
+            margin-bottom: 0
+            margin-top: 0
+            margin-left: 2rem
+            margin-right: auto
         @include breakpoint(desktop)
-            gap: 2rem
-        a
-            color: $primary
-            text-decoration: none
-            text-transform: capitalize
-            position: relative
-            @include breakpoint(desktop)
-                &::before
-                    content: ""
-                    position: absolute
-                    border: 2px solid white
-                    width: 1.5rem
-                    bottom: -0.5rem
-                    left: 50%
-                    transform: translateX(-50%)
-                    opacity: 0
-                &:hover::before
-                    opacity: 1
-                    animation: pulse 0.4s forwards
-.social-copyright
-    display: flex
-    flex-direction: column
-    align-items: center
-    gap: 1rem
-    @include breakpoint(tablet)
-        align-items: flex-end
-    p.copyright
-        color: hsl(0, 0%, 100%, 50%)
-
-@include breakpoint(tablet)
-    .logo-nav, .social-copyright
-        gap: 14px
+            column-gap: 3rem
+            margin-left: 4rem
