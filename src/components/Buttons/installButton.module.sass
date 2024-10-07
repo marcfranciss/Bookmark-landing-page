@@ -1,0 +1,31 @@
+@use "../../sass/_index" as *
+
+.installer
+    outline: none
+    cursor: pointer
+    width: 232px
+    height: 3rem
+    display: grid
+    place-items: center
+    color: $default
+    background-color: $accent
+    border: 2px solid $accent
+    border-radius: 5px
+    transition: color 400ms ease-out, background-color 400ms ease-out
+    font-family: "Rubik", sans-serif
+    font-size: 14px
+    font-weight: 500
+    line-height: 28px
+    letter-spacing: 0.25px
+    @include shadow
+    @include breakpoint(tablet)
+        width: 100%
+        max-width: 192px
+    @include breakpoint(desktop)
+        max-width: 232px
+    &:hover
+        color: $accent
+        background-color: $default
+        border: 2px solid $accent
+    &:active
+        animation: pressDown 400ms ease-out

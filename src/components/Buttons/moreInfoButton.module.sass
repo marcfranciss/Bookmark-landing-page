@@ -1,6 +1,6 @@
 @use "../../sass/_index" as *
 .button_more
-    all: unset
+    outline: none
     width: 114px
     height: 3rem
 
@@ -11,9 +11,16 @@
     color: $default
 
     border-radius: 5px
+    border: 2px solid transparent
     box-shadow: 0 8px 8px -4px $btn-bg
 
     cursor: pointer
+
+    &:hover
+        transition: color 400ms ease-out, background-color 400ms ease-out, border 400ms ease-out
+        color: $accent
+        border: 2px solid $accent
+        background-color: $default
 
     &:active
         animation: pressDown 400ms ease-out

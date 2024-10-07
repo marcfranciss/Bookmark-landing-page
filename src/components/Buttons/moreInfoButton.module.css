@@ -226,7 +226,25 @@ section {
   max-width: 1110px;
 }
 
-.logo-container {
-  max-width: 149px;
-  max-height: 25px;
-}/*# sourceMappingURL=logo.css.map */
+.button_more {
+  outline: none;
+  width: 114px;
+  height: 3rem;
+  display: grid;
+  place-items: center;
+  background-color: hsl(231, 69%, 60%);
+  color: hsl(0, 0%, 100%);
+  border-radius: 5px;
+  border: 2px solid transparent;
+  box-shadow: 0 8px 8px -4px hsla(231, 58%, 55%, 0.2001);
+  cursor: pointer;
+}
+.button_more:hover {
+  transition: color 400ms ease-out, background-color 400ms ease-out, border 400ms ease-out;
+  color: hsl(231, 69%, 60%);
+  border: 2px solid hsl(231, 69%, 60%);
+  background-color: hsl(0, 0%, 100%);
+}
+.button_more:active {
+  animation: pressDown 400ms ease-out;
+}/*# sourceMappingURL=moreInfoButton.module.css.map */

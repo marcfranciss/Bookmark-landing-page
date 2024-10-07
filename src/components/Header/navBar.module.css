@@ -226,7 +226,11 @@ section {
   max-width: 1110px;
 }
 
-.logo-container {
-  max-width: 149px;
-  max-height: 25px;
-}/*# sourceMappingURL=logo.css.map */
+.nav_bar {
+  display: flex;
+}
+.nav_bar a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: hsl(229, 31%, 21%);
+}/*# sourceMappingURL=navBar.module.css.map */

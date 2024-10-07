@@ -12,10 +12,10 @@ export const App = () => {
       <Header /> {/* Done */}
       <HeroSection /> {/* Done */}
       <FeatureSection /> {/* Done */}
-      <ProductSection /> {/* Ongoing */}
-      <FAQSection /> {/* NYS */}
-      <CTASection /> {/* NYS */}
-      <Footer /> {/* NYS */}
+      <ProductSection /> {/* Done */}
+      <FAQSection /> {/* Done */}
+      <CTASection /> {/* Done */}
+      <Footer /> {/* Done */}
     </main>
   );
 };

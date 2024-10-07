@@ -226,7 +226,49 @@ section {
   max-width: 1110px;
 }
 
-.logo-container {
-  max-width: 149px;
-  max-height: 25px;
-}/*# sourceMappingURL=logo.css.map */
+.btn_login {
+  all: unset;
+  outline: none;
+  font-family: "Rubik", sans-serif;
+  background: transparent;
+  width: 100%;
+  height: 3rem;
+  display: grid;
+  place-items: center;
+  text-transform: uppercase;
+  color: hsl(0, 0%, 100%);
+  border: 2px solid hsl(0, 0%, 100%);
+  border-radius: 5px;
+  cursor: pointer;
+  will-change: transform;
+  transition: color 400ms ease-out, background-color 400ms ease-out, border 400ms ease-out;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 17px;
+  letter-spacing: 2.31px;
+}
+.btn_login:active {
+  animation: pressDown 400ms ease-out;
+}
+.btn_login:focus {
+  outline: 2px solid hsla(0, 0%, 100%, 0.6);
+}
+@media (min-width: 48rem) {
+  .btn_login {
+    font-size: 13px;
+    letter-spacing: 1.5px;
+  }
+}
+@media (min-width: 48rem) {
+  .btn_login {
+    width: 111px;
+    height: 2.5rem;
+    background-color: hsl(0, 94%, 66%);
+    border: 2px solid transparent;
+  }
+  .btn_login:hover {
+    color: hsl(0, 94%, 66%);
+    background-color: transparent;
+    border: 2px solid hsl(0, 94%, 66%);
+  }
+}/*# sourceMappingURL=loginButton.module.css.map */

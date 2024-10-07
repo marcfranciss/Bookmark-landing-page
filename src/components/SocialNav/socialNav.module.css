@@ -226,7 +226,11 @@ section {
   max-width: 1110px;
 }
 
-.logo-container {
-  max-width: 149px;
-  max-height: 25px;
-}/*# sourceMappingURL=logo.css.map */
+.nav_socials {
+  display: flex;
+  gap: 2.5rem;
+}
+.nav_socials svg:hover path {
+  transition: fill 400ms ease-out;
+  fill: hsl(0, 94%, 66%);
+}/*# sourceMappingURL=socialNav.module.css.map */

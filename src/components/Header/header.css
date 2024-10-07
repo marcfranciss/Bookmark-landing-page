@@ -109,12 +109,16 @@ button::selection {
   background-color: hsl(229, 8%, 60%);
 }
 
-.slideRight > img {
-  animation: slideRight 0.7s ease infinite;
+.flex {
+  display: flex;
 }
 
-.slideLeft > img {
-  animation: slideLeft 0.7s ease infinite;
+.flex-x {
+  flex-direction: row;
+}
+
+.flex-y {
+  flex-direction: column;
 }
 
 @keyframes slideRight {
@@ -137,6 +141,28 @@ button::selection {
     opacity: 1;
   }
 }
+@keyframes pressDown {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
+.inView {
+  animation: inView 800ms ease-out;
+}
+
+@keyframes inView {
+  from {
+    opacity: 0;
+    filter: blur(5px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
 @font-face {
   font-family: "Rubik";
   src: url("/src/assets/fonts/Rubik/Rubik-VariableFont_wght.ttf") format(truetype);
@@ -155,10 +181,17 @@ button::selection {
 }
 
 .heading-m {
-  font-weight: 700;
-  line-height: 22px;
-  letter-spacing: 5.83px;
-  color: hsl(0, 0%, 100%);
+  font-size: clamp(1.5rem, 1.3239rem + 0.7512vw, 2rem);
+  font-weight: 500;
+  line-height: 52px;
+  letter-spacing: clamp(-0.005rem, -0.0046rem - 0.0019vw, -0.00625rem);
+}
+
+.heading-s {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.5rem;
+  letter-spacing: 0.25px;
 }
 
 .text-body {
@@ -193,12 +226,13 @@ section {
   max-width: 1110px;
 }
 
-dialog {
-  background-color: hsl(0, 0%, 0%);
-}
-
 header {
   width: 100%;
+  position: relative;
+}
+header .header-container {
+  width: 100%;
+  max-width: 1110px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -207,17 +241,36 @@ header {
   padding-inline: 2rem;
   position: absolute;
   top: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
 @media (min-width: 48rem) {
-  header {
-    max-width: 1110px;
-    padding-top: 4rem;
+  header .header-container {
+    padding-top: 3rem;
   }
 }
 @media (min-width: 68rem) {
-  header {
-    padding-inline: 0;
-    margin-inline: 165px;
+  header .header-container {
+    padding-left: 6px;
+    padding-right: 0;
   }
+}
+header .header-container .nav-header__container {
+  display: none;
+}
+@media (min-width: 48rem) {
+  header .header-container .nav-header__container {
+    display: flex;
+    flex-direction: row;
+    -moz-column-gap: 3rem;
+         column-gap: 3rem;
+  }
+}
+header .header-container .nav-header__container .nav-main {
+  align-items: center;
+  gap: 3rem;
+}
+header .header-container .nav-header__container .nav-main a:hover {
+  transition: color 200ms ease-out;
+  color: hsl(0, 94%, 66%);
 }/*# sourceMappingURL=header.css.map */

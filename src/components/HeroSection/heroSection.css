@@ -109,12 +109,16 @@ button::selection {
   background-color: hsl(229, 8%, 60%);
 }
 
-.slideRight > img {
-  animation: slideRight 0.7s ease infinite;
+.flex {
+  display: flex;
 }
 
-.slideLeft > img {
-  animation: slideLeft 0.7s ease infinite;
+.flex-x {
+  flex-direction: row;
+}
+
+.flex-y {
+  flex-direction: column;
 }
 
 @keyframes slideRight {
@@ -137,6 +141,28 @@ button::selection {
     opacity: 1;
   }
 }
+@keyframes pressDown {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
+.inView {
+  animation: inView 800ms ease-out;
+}
+
+@keyframes inView {
+  from {
+    opacity: 0;
+    filter: blur(5px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
 @font-face {
   font-family: "Rubik";
   src: url("/src/assets/fonts/Rubik/Rubik-VariableFont_wght.ttf") format(truetype);
@@ -155,10 +181,17 @@ button::selection {
 }
 
 .heading-m {
-  font-weight: 700;
-  line-height: 22px;
-  letter-spacing: 5.83px;
-  color: hsl(0, 0%, 100%);
+  font-size: clamp(1.5rem, 1.3239rem + 0.7512vw, 2rem);
+  font-weight: 500;
+  line-height: 52px;
+  letter-spacing: clamp(-0.005rem, -0.0046rem - 0.0019vw, -0.00625rem);
+}
+
+.heading-s {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.5rem;
+  letter-spacing: 0.25px;
 }
 
 .text-body, #s-hero .hero-text p {
@@ -193,10 +226,6 @@ section {
   max-width: 1110px;
 }
 
-dialog {
-  background-color: hsl(0, 0%, 0%);
-}
-
 #s-hero {
   overflow: hidden;
 }
@@ -206,12 +235,17 @@ dialog {
   flex-direction: column;
   padding-inline: 2rem;
   padding-top: 145px;
-  gap: 48px;
+  row-gap: 3rem;
 }
 @media (min-width: 48rem) {
   #s-hero .container {
+    min-height: 0;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
+    row-gap: 0;
+    -moz-column-gap: 3rem;
+         column-gap: 3rem;
   }
 }
 @media (min-width: 68rem) {
@@ -219,17 +253,24 @@ dialog {
     margin-inline: auto;
     padding-inline: 0;
     padding-top: 202px;
+    align-items: flex-start;
   }
 }
 #s-hero .hero-text {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  text-align: center;
 }
 @media (min-width: 48rem) {
   #s-hero .hero-text {
+    text-align: left;
     order: -1;
+  }
+}
+@media (min-width: 68rem) {
+  #s-hero .hero-text {
+    margin-top: 71px;
   }
 }
 #s-hero .hero-text h1 {
@@ -250,34 +291,42 @@ dialog {
   flex: 1;
   position: relative;
   max-height: 255px;
+  animation: slideIn 2s forwards;
 }
 @media (min-width: 68rem) {
   #s-hero .hero-img {
-    max-height: 486px;
+    max-height: none;
   }
 }
-#s-hero .hero-img img {
+#s-hero .hero-img .hero-img__container {
+  position: relative;
   max-width: 313px;
   max-height: 209px;
+  margin-bottom: 46px;
+  z-index: -1;
 }
 @media (min-width: 68rem) {
-  #s-hero .hero-img img {
-    max-width: 579px;
-    max-height: 386px;
+  #s-hero .hero-img .hero-img__container {
+    max-width: none;
+    max-height: none;
+    width: 579px;
+    height: 385px;
+    margin-bottom: 100.5px;
   }
 }
-#s-hero .hero-img .design-oblong {
+#s-hero .hero-img::after {
+  content: "";
   position: absolute;
   width: 577px;
   height: 203px;
   bottom: 0;
   left: 39px;
-  z-index: -1;
+  z-index: -2;
   border-radius: 316.5px;
   background-color: hsl(231, 69%, 60%);
 }
 @media (min-width: 68rem) {
-  #s-hero .hero-img .design-oblong {
+  #s-hero .hero-img::after {
     width: 1000px;
     height: 352px;
     left: 155px;
@@ -319,7 +368,7 @@ dialog {
 .btn-download.btn-blue:hover {
   background-color: transparent;
   color: hsl(231, 69%, 60%);
-  border: 2px solid hsl(229, 31%, 21%);
+  border: 2px solid hsl(231, 69%, 60%);
 }
 .btn-download.btn-white {
   background-color: hsl(0, 0%, 97%);
@@ -334,5 +383,18 @@ dialog {
 @media (min-width: 68rem) {
   .btn-download {
     width: 166px;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(50%);
+    opacity: 0;
+    filter: blur(5px);
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+    filter: blur(0);
   }
 }/*# sourceMappingURL=heroSection.css.map */

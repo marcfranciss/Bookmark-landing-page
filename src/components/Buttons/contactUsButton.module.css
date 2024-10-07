@@ -226,7 +226,34 @@ section {
   max-width: 1110px;
 }
 
-.logo-container {
-  max-width: 149px;
-  max-height: 25px;
-}/*# sourceMappingURL=logo.css.map */
+.btn_contact {
+  outline: none;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  max-width: 311px;
+  height: 3rem;
+  background-color: hsl(0, 94%, 66%);
+  color: hsl(0, 0%, 100%);
+  display: grid;
+  place-items: center;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 28px;
+  letter-spacing: 0.25px;
+  transition: color 400ms ease-out, background-color 400ms ease-out, border 400ms ease-out;
+}
+@media (min-width: 48rem) {
+  .btn_contact {
+    width: 126px;
+  }
+}
+.btn_contact:hover {
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(0, 94%, 66%);
+  border: 2px solid hsl(0, 94%, 66%);
+}
+.btn_contact:active {
+  transition: transform 400ms ease-out;
+  transform: scale(0.9);
+}/*# sourceMappingURL=contactUsButton.module.css.map */

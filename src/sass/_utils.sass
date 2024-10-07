@@ -1,6 +1,6 @@
 
-@mixin shadow($color)
-    box-shadow: inset 0 -8px 0 0 #{$color}
+@mixin shadow
+    box-shadow: 0 8px 0 8px -4px hsla(231, 58%, 55%, 20.01%)
 
 $desktop: 68rem
 $tablet: 48rem
@@ -45,3 +45,17 @@ $mobile: 30rem
         transform: scale(1)
     100%
         transform: scale(0.9)
+
+.inView
+    animation: inView 800ms ease-out forwards
+
+@mixin inView
+    animation: inView 800ms ease-out
+
+@keyframes inView
+    from
+        opacity: 0
+        filter: blur(5px)
+    to
+        opacity: 1
+        filter: blur(0)

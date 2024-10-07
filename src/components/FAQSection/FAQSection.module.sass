@@ -1,1 +1,130 @@
 @use "../../sass/_index" as *
+
+.container
+    max-width: 1110px
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    margin-top: 140px
+    padding-inline: 2rem
+    @include breakpoint(desktop)
+        margin-top: 149px
+        max-width: 540px
+        padding-inline: 0
+        margin-inline: auto
+
+.FAQ_header
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    text-align: center
+    max-width: 311px
+    row-gap: 1rem
+    margin-bottom: 4rem
+    @include breakpoint(tablet)
+        max-width: 540px
+        margin-bottom: 3.5rem
+    h2
+        font-size: clamp(1.5rem, 1.3239rem + 0.7512vw, 2rem)
+        line-height: clamp(1.875rem, 1.3908rem + 2.0657vw, 3.25rem)
+        letter-spacing: clamp(-0.005rem, -0.0046rem + -0.0019vw, -0.00625rem)
+        font-weight: 500
+        color: $primary
+    p
+        @include text-body
+        color: $primary-mid
+
+.FAQ_accordion
+    display: flex
+    flex-direction: column
+    margin-bottom: 3rem
+    dl
+        display: flex
+        flex-direction: column
+        width: 100%
+        dt
+            .expander
+                outline: none
+                border: none
+                width: 100%
+                display: flex
+                flex-direction: row
+                justify-content: space-between
+                align-items: center
+                background: transparent
+                cursor: pointer
+                padding-top: 1.5rem
+                padding-bottom: 1rem
+                @include text-body
+                color: $primary
+                @include breakpoint(tablet)
+                    &:hover
+                        transition: color 400ms ease-out, stroke 400ms ease-out
+                        color: $orange
+                        path
+                            stroke: $orange
+                @include breakpoint(desktop)
+                    padding-block: 20px
+                    svg
+                        margin-right: 1.5rem
+        &:nth-child(1)
+            .expander
+                padding-top: 4px
+                padding-bottom: 14px
+                @include breakpoint(desktop)
+                    padding-top: 24px
+                    padding-bottom: 16px
+
+        dd
+            font-size: clamp(0.9375rem, 0.9155rem + 0.0939vw, 1rem)
+            line-height: clamp(1.875rem, 1.743rem + 0.5634vw, 2.25rem)
+            letter-spacing: clamp(0.000875rem, -0.0021rem + 0.0128vw, 0.009375rem)
+            font-weight: 400
+            color: $primary-mid
+            border-bottom: 1px solid hsla(229, 31%, 21%, 14.77%)
+
+.isShown
+    animation: open 400ms ease-out
+    padding-top: 14px
+    padding-bottom: 26px
+.isHidden
+    max-height: 0
+    overflow: hidden
+    animation: close 400ms ease-out
+
+@keyframes open
+    from
+        opacity: 0
+        max-height: 0
+        transform: translateY(-20%)
+    to
+        opacity: 1
+        max-height: 100%
+        transform: translateY(0)
+
+@keyframes close
+    from
+        opacity: 1
+        transform: translateY(0)
+    to
+        opacity: 0
+        transform: translateY(-20%)
+
+@keyframes rotateActive
+    from
+        transform: rotate(0deg)
+    to
+        transform: rotate(180deg)
+
+@keyframes rotateNotActive
+    from
+        transform: rotate(180deg)
+    to
+        transform: rotate(0deg)
+
+svg.isActive
+    animation: rotateActive 400ms forwards
+    path
+        stroke: $orange

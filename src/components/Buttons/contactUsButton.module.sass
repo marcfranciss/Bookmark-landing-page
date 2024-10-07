@@ -1,1 +1,32 @@
 @use "../../sass/_index" as *
+
+.btn_contact
+    outline: none
+    border: 2px solid transparent
+    border-radius: 5px
+    cursor: pointer
+    max-width: 311px
+    height: 3rem
+
+    background-color: $orange
+    color: $default
+
+    display: grid
+    place-items: center
+
+    font-weight: 500
+    font-size: 14px
+    line-height: 28px
+    letter-spacing: 0.25px
+    transition: color 400ms ease-out, background-color 400ms ease-out, border 400ms ease-out
+
+    @include breakpoint(tablet)
+        width: 126px
+
+    &:hover
+        background-color: $default
+        color: $orange
+        border: 2px solid $orange
+    &:active
+        transition: transform 400ms ease-out
+        transform: scale(0.9)

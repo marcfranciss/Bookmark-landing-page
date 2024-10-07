@@ -39,9 +39,10 @@
     border-block: 1px solid var(--border-color)
     margin-bottom: 4.5rem
 
-    @include breakpoint(desktop)
-        border-top: none
+    @include breakpoint(tablet)
         flex-direction: row
+        border-top: none
+    @include breakpoint(desktop)
         max-width: 730px
         height: 49px
 
@@ -100,18 +101,20 @@
     .feature-details
         display: flex
         flex-direction: column
-        @include breakpoint(desktop)
+        @include breakpoint(tablet)
             flex: 1
             flex-direction: row
         &.show
             display: flex
+            animation: open 800ms forwards
         &.hide
             display: none
+            animation: close 800ms forwards
 
         .feature-image__container
             position: relative
             max-height: 255px
-            @include breakpoint(desktop)
+            @include breakpoint(tablet)
                 flex: 1
                 max-height: none
             .feature-image
@@ -146,9 +149,13 @@
             align-items: center
             text-align: center
 
+            @include breakpoint(tablet)
+                flex: 1
+                margin-block: 28px
             @include breakpoint(desktop)
                 flex: 1
                 margin-top: 57px
+                margin-bottom: 0
                 align-items: flex-start
                 padding-left: 85px
                 text-align: left

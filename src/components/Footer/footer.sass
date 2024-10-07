@@ -13,9 +13,12 @@ footer
     @include breakpoint(tablet)
         flex-direction: row
         justify-content: space-between
-        padding-top: 44px
-        padding-bottom: 33px
+        padding-top: 36px
+        padding-bottom: 35px
+    @include breakpoint(desktop)
+        padding-inline: 0
         margin-inline: auto
+
     .nav-footer
         display: flex
         flex-direction: column

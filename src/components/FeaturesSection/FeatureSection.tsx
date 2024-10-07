@@ -5,6 +5,7 @@ import feature1 from "../../assets/images/illustration-features-tab-1.svg";
 import feature2 from "../../assets/images/illustration-features-tab-2.svg";
 import feature3 from "../../assets/images/illustration-features-tab-3.svg";
 import { MoreInfoButton } from "../Buttons/MoreInfoButton";
+import { useInView } from "react-intersection-observer";
 
 const featureNav = ["Simple Bookmarking", "Speedy Searching", "Easy Sharing"];
 
@@ -27,10 +28,17 @@ const featureContent = [
 ];
 export const FeatureSection = () => {
   const [currIndex, setCurrIndex] = useState<number>(0);
+  const { ref, inView } = useInView({
+    threshold: 0.1,
+    triggerOnce: true,
+  });
   return (
     <section id='s-feature'>
       <div className='container'>
-        <article className='feature-article'>
+        <article
+          ref={ref}
+          style={{ opacity: 0 }}
+          className={`feature-article ${inView ? "inView" : ""}`}>
           <h2>Features</h2>
           <p>
             Our aim is to make it quick and easy for you to access your
@@ -38,7 +46,7 @@ export const FeatureSection = () => {
             can access them on the go.
           </p>
         </article>
-        <nav className='feature-nav'>
+        <nav ref={ref} className={`feature-nav ${inView ? "inView" : ""}`}>
           {featureNav.map((text, index) => {
             return (
               <button
@@ -64,7 +72,7 @@ export const FeatureSection = () => {
                     <LazyLoadImage src={details.image} alt={details.header} />
                   </div>
                 </div>
-                <div className='feature-text'>
+                <div className={`feature-text`}>
                   <h2>{details.header}</h2>
                   <p>{details.text}</p>
                   <MoreInfoButton />
